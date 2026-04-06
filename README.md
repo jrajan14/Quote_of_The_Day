@@ -15,10 +15,10 @@ A sophisticated web application that delivers randomly selected inspirational qu
 ## File Structure
 
 quote-of-the-day/
-├── index.html # Main HTML structure
-├── styles.css # Styling and animations
-├── scripts.js # Quote logic and flying objects
-└── quotes.json # Quote database
+├── index.html      # Main HTML structure
+├── styles.css      # Styling and animations
+├── scripts.js      # Quote logic and flying objects
+└── quotes.json     # Quote database
 
 
 ## Quick Start
