@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+    cursor: default;
+    /* Ultra-smooth gradient background with slower transition */
+    background: linear-gradient(125deg, 
+        #1a1a2e 0%,
+        #16213e 20%,
+        #1a1a2e 40%,
+        #0f3460 60%,
+        #1a1a2e 80%,
+        #16213e 100%);
+    background-size: 300% 300%;
+    animation: slowFlow 20s ease infinite alternate;
+}
+
+/* Smooth, flowing gradient animation - no sudden jumps */
+@keyframes slowFlow {
+    0% {
+        background-position: 0% 50%;
+        background: linear-gradient(125deg, #1a1a2e, #16213e, #0f3460, #1a1a2e);
+        background-size: 300% 300%;
+    }
+    25% {
+        background-position: 50% 50%;
+        background: linear-gradient(125deg, #2d1b4e, #1a1a2e, #16213e, #0b2b40);
+        background-size: 300% 300%;
+    }
+    50% {
+        background-position: 100% 50%;
+        background: linear-gradient(125deg, #0f2027, #203a43, #2c5364, #0f2027);
+        background-size: 300% 300%;
+    }
+    75% {
+        background-position: 50% 50%;
+        background: linear-gradient(125deg, #1e3c72, #2a5298, #1e3c72, #0f2027);
+        background-size: 300% 300%;
+    }
+    100% {
+        background-position: 0% 50%;
+        background: linear-gradient(125deg, #1a1a2e, #16213e, #0f3460, #1a1a2e);
+        background-size: 300% 300%;
+    }
+}
+
+/* Alternative smoother gradient using multiple layers */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.2) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Flying Objects Canvas */
+#floatingCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Glass Container - improved for readability */
+.glass-container {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 2rem;
+    max-width: 700px;
+    width: 90%;
+    background: rgba(10, 10, 20, 0.65);
+    backdrop-filter: blur(20px);
+    border-radius: 2rem;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.15);
+    animation: floatContainer 3s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+@keyframes floatContainer {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Badge */
+.badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    padding: 0.5rem 1.2rem;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: pulseBadge 2s infinite;
+}
+
+@keyframes pulseBadge {
+    0%, 100% { opacity: 0.9; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* Main Title - enhanced visibility */
+.main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0, #e0e0ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    word-break: keep-all;
+}
+
+/* Quote Card - darker for better contrast */
+.quote-card {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    border-radius: 1.5rem;
+    padding: 2rem 2rem 2rem 3rem;
+    margin-bottom: 2rem;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.quote-card:hover {
+    transform: scale(1.02);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.quote-icon {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+    line-height: 1;
+}
+
+.quote-text {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    word-wrap: break-word;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+}
+
+.quote-author {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 1px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    border-top: 1px dashed rgba(255,255,255,0.3);
+    display: inline-block;
+    padding-top: 0.8rem;
+    transition: opacity 0.2s ease;
+}
+
+.quote-decoration {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Crystal Button - enhanced */
+.crystal-btn {
+    background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.1));
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    border-radius: 60px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+    margin-top: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.crystal-btn:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.15));
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    border-color: rgba(255,255,255,0.6);
+}
+
+.crystal-btn:active {
+    transform: translateY(2px);
+}
+
+.btn-text {
+    position: relative;
+    z-index: 2;
+    letter-spacing: 1px;
+}
+
+.btn-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
+}
+
+.crystal-btn:hover .btn-glow {
+    left: 100%;
+}
+
+/* Footer */
+.footer-note {
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .glass-container {
+        padding: 1.5rem;
+        width: 95%;
+    }
+    .main-title {
+        font-size: 2rem;
+    }
+    .quote-text {
+        font-size: 1.2rem;
+        min-height: 100px;
+    }
+    .quote-icon {
+        font-size: 3.5rem;
+        top: 0px;
+        left: 8px;
+    }
+    .quote-card {
+        padding: 1.5rem 1.5rem 1.5rem 2rem;
+    }
+}
+
+/* Quote fade animation */
+@keyframes quotePop {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+        filter: blur(4px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+.quote-card {
+    animation: quotePop 0.6s ease-out;
+}
+
+/* Additional subtle animated stars/particles in background */
+@keyframes subtleTwinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+}
