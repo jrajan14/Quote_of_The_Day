@@ -43,13 +43,13 @@ Edit `quotes.json` and add new entries:
 Chrome, Firefox, Safari, Edge (all modern versions)
 
 ## Use Cases
-Personal daily inspiration dashboard
-Website widget or embedded component
-Learning resource for CSS animations and JavaScript canvas physics
-Starter template for larger quotation platforms
-Digital signage or kiosk display
-Browser start page or new tab replacement
-Morning motivation tool for teams or classrooms
+- Personal daily inspiration dashboard
+- Website widget or embedded component
+- Learning resource for CSS animations and JavaScript canvas physics
+- Starter template for larger quotation platforms
+- Digital signage or kiosk display
+- Browser start page or new tab replacement
+- Morning motivation tool for teams or classrooms
 
 ## License
 Free to use for personal or commercial projects.
